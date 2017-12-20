@@ -1,4 +1,17 @@
 
+<style type="text/css">
+    .card li.list-group-item{
+        border-radius: 0px;
+      
+        border-color: #ddd;
+    }
+    .list-group-item{
+        border: 0px 0px;
+    }
+    .list-group{
+        margin-bottom: 0px;
+    }
+</style>
 <div class="container-fluid" >
     
     <div class="row">
@@ -23,33 +36,33 @@
                 <h3><label>Ad Settings</label></h3>
 
                 <div class="form-group">
-                    <label for="inputUsername">Call To Action Title</label>
+                    <label for="cta">Call To Action Title</label>
                     <input type="text" name="cta" class="form-control" placeholder="Call to action" required="required"/>
                 </div>
 
                 <div class="form-group">
-                    <label for="inputUsername">Message Title</label>
+                    <label for="message_title">Message Title</label>
                     <input type="text" name="message_title" class="form-control" placeholder="Message Title" required="required"/>
                 </div>
 
                 <div class="form-group">
-                    <label for="inputUsername">Message Body</label>
+                    <label for="msg_body">Message Body</label>
                     <input type="text" name="msg_body" class="form-control" placeholder="Message Body" required="required"/>
                 </div>
 
                 <div class="form-group">
-                    <label for="inputUsername">Image Url</label>
+                    <label for="image_url">Image Url</label>
                     <input type="text" name="image_url" class="form-control" placeholder="Image Url" required="required"/>
                 </div>
 
                 <div class="form-group">
-                    <label for="inputPassword">Link Button Url</label>
-                    <input type="password" name="link_btn_url" class="form-control" placeholder="Link Button Url" required="required" />
+                    <label for="link_btn_url">Link Button Url</label>
+                    <input type="text" name="link_btn_url" class="form-control" placeholder="Link Button Url" required="required" />
                 </div>
 
                 <div class="form-group">
-                    <label for="inputPassword">Link Button Text</label>
-                    <input type="password" name="link_btn_text" class="form-control" placeholder="Link Button Text" required="required" />
+                    <label for="link_btn_text">Link Button Text</label>
+                    <input type="text" name="link_btn_text" class="form-control" placeholder="Link Button Text" required="required" />
                 </div>
 
                 <!--Quick replies-->
@@ -57,11 +70,11 @@
 
                 <div class="form-group">
                     <label for="inputPassword">Reply 1</label>
-                    <input type="password" name="password" class="form-control" placeholder="Reply 01" required="required" />
+                    <input type="text" name="reply1" class="form-control" placeholder="Reply 01" required="required" />
                 </div>
                 <div class="form-group">
                     <label for="inputPassword">Reply 2</label>
-                    <input type="password" name="password" class="form-control" placeholder="Reply 02" required="required" />
+                    <input type="text" name="reply2" class="form-control" placeholder="Reply 02" required="required" />
                 </div>
                 <button class=" btn btn-lg btn-primary" type="submit">Save and Get JSON</button>
 
@@ -72,35 +85,38 @@
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-5">
-            <div class="row">
-                <div class="col-md-12" style="background: #fff;">
-                    <div class="card" style="width: 30rem;">
-                        <img class="card-img-top img-responsive" src="https://timkadlec.com/test/mq-svg/kiwi-mq.svg" alt="Card image cap"/>
-                        <div class="card-block">
-                          <h4 class="card-title">Card title</h4>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                          <li class="list-group-item card-link">Clickable link</li>
-                          <li class="list-group-item card-link">Ask a question</li>
-                        </ul>
-                        <a href="#" class="btn btncard-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
+            <h1 class="display-2">Live Ad Preview</h1>
+            <div style="width: 30rem;">
+                <div class="card" style="background:#fff; border: 2px solid #ddd;  border-radius: 10px;">
+                    <img class="card-img-top img-responsive" id="image_url" style="margin: 0 auto;" src="https://timkadlec.com/test/mq-svg/kiwi-mq.svg" alt="Card image cap"/>
+                    <div class="card-block" style="padding: 5px; border-top:  1px solid #ddd;">
+                      <h2 class="card-title" id="message_title">Card title</h2>
+                      <p class="card-text" id="msg_body">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     </div>
+                    <ul class="list-group list-group-flush text-center">
+                      <li class="list-group-item card-link"><a href="#" id="link_btn">Clickable link</a></li>
+                      <li class="list-group-item card-link"><a href="#" id="cta">Call to action</a></li>
+                    </ul>
+                    
+                </div>
+                <div class="text-center">
+                    <a href="#" class="btn btn-default" id="reply1">Reply 1</a>
+                    <a href="#" class="btn btn-default" id="reply2">Reply 2</a>
                 </div>
             </div>
             
+
         </div>
     </div>
     
-    <script>
+    <!-- <script>
 
         $('#loginForm').validate({
         rules: {
         password: {
         required: true,
         minlength: 6
-        //                    pwcheck: true
+        //pwcheck: true
         },
         username: {
         required: true
@@ -108,5 +124,5 @@
         }
         });
 
-    </script>
+    </script> -->
 </div>
