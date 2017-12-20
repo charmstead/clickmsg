@@ -1,0 +1,38 @@
+<div class="container" >
+    <form id="loginForm" th:action="@{/login}" method="post" class="form-signin" style="background: white; padding: 30px;margin-top: 8em;">
+        <h4 class="form-signin-heading">Please sign in 
+            <!--                    with your Shoppi.ng account-->
+        </h4>
+        <div th:if="${error}">
+            <div class="alert alert-danger" role="alert">
+                <p th:text="*{error}"></p> 
+            </div><br/>
+        </div>
+        <div class="form-group">
+            <label for="inputUsername">Email address</label>
+            <input type="text" name="username" class="form-control" placeholder="Email address" required="required" autofocus="autofocus" />
+        </div>
+        <div class="form-group">
+            <label for="inputPassword">Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Password" required="required" />
+        </div>
+
+        <button class="center-block btn btn-lg btn-primary" type="submit">Login</button>
+    </form>
+    <script>
+
+        $('#loginForm').validate({
+        rules: {
+        password: {
+        required: true,
+        minlength: 6
+        //                    pwcheck: true
+        },
+        username: {
+        required: true
+        }
+        }
+        });
+
+    </script>
+</div>

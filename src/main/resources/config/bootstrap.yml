@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: clickmsg
+  cloud:
+    config:
+      enabled: false

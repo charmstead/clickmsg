@@ -1,0 +1,224 @@
+<!--AUTHOR: OLUSEESIN OLATOMIDE-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  	<title>Register</title>
+  	
+
+<link rel="shortcut icon" href="../../static/images/fav.ico" />
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!-- Mobile viewport optimized -->
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    
+    <!-- MUI CSS -->
+    <link href="../static/css/mui.min.css" th:href="@{/css/mui.min.css}" rel="stylesheet" type="text/css"/>
+    <link href="../static/css/materialize.min.css" th:href="@{/css/materialize.min.css}" rel="stylesheet" type="text/css"/>
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css"/>-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+      <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    
+    <!-- Custom CSS -->
+    <link th:href="@{/include/css/styles.css}" rel="stylesheet" type="text/css"/>
+    <style>
+        ul, li {
+            margin:0;
+            padding:0;
+            list-style-type:none;
+        }
+        
+        #pswd_info {
+            position:absolute;
+            top:75px;
+            
+            left:20px;
+            min-width:200px;
+            padding:15px;
+            background:#fefefe;
+            font-size:.875em;
+            border-radius:5px;
+            box-shadow:0 1px 3px #ccc;
+            border:1px solid #ddd;
+            display: none;
+        }
+        #pswd_info strong{
+            font-weight: bold;
+        }
+        #pswd_info h4 {
+            margin:0 0 10px 0;
+            padding:0;
+            font-weight:normal;
+        }
+        #pswd_info::before {
+            content: "\25B2";
+            position:absolute;
+            top:-12px;
+            left:45%;
+            font-size:14px;
+            line-height:14px;
+            color:#ddd;
+            text-shadow:none;
+            display:block;
+        }
+        .invalid {
+            /*background:url(../images/invalid.png) no-repeat 0 50%;*/
+            
+            color:#ec3f41;
+        }
+        .valid {
+            /*background:url(../images/valid.png) no-repeat 0 50%;*/
+            
+            color:#3a7d34;
+        }
+    </style>
+  </head>
+  <body>
+      <div class="mui--hidden-xs mui--hidden-sm" style="position:fixed; top:0; left:0;">
+          <div class="mui-container">
+              <table class="mui-container" width="100%">
+                    <tr style="vertical-align:middle;">
+                        <td>
+                            <img style="" src="../static/images/whitelogo1.png" th:src="@{/images/whitelogo1.png}"/>
+
+                        </td>
+                    </tr>
+              </table>
+              
+          </div>
+          
+      </div>   
+    <!--start of page content-->
+<div class="mui-appbar mui--z2 mui--visible-xs-block mui--visible-sm-block" id="header"><!--start of header-->
+  	<table class="mui-container" width="100%">
+          <tr style="vertical-align:middle;">
+          	<td>
+          	<a href="/">
+                <img style="" src="../../static/images/whitelogo1.png" th:src="@{/images/whitelogo1.png}"/>
+                
+                    <h5><b>SaleSniper</b></h5>
+                <!-- Appbar HTML goes here -->
+               </a>
+          	</td>
+            <td class="mui--appbar-height">
+              <ul class="mui-list--inline mui--text-body2">
+	             	<li><a href="/" >Home</a></li>
+	             	<li><a href="/registration" >SignUp</a></li>
+	            </ul>                
+            </td>
+            
+            
+          </tr>
+        </table>
+
+        <table width="100%" class="mui-container">
+          <tr style="vertical-align:middle;">
+            <td class="mui--appbar-height">
+            	<div class="mui--text-left" id="order">
+            		<h4>Welcome to SaleSniper</h4>
+              <p>
+                  Come on board and take a tour on <strong>SaleSniper</strong>
+                  <br/>
+                  <a href="/" class="mui-btn mui-btn--small mui-btn--danger mui-btn--raised">login</a>
+              </p>
+            	</div>
+            	
+            	
+            </td>
+            
+          </tr>
+        </table>
+    </div><!--end of header-->
+    
+    
+    <div class="mui-container-fluid" id="container">
+        
+        <div class="mui-row"><!--start of row contents-->
+
+            
+            
+            <div class="mui-col-md-6 mui-col-md-offset-6"><!--start of mui-col-6 contents-->
+                
+                <div class="mui-container">
+                   
+                                        
+                    <form class="mui-form mui-panel" id="form" style="position:relative;" method="post" th:action="@{/registration}">
+                        <h3>Welcome to SaleSniper</h3>
+                        <p>
+                            SaleSniper is a powerful and easy to use mobile app to help you get more sales. You get:
+                            <ul>
+                            <li> An Android app that can be installed free of charge (for up to 5 sales personnel). The app helps your sales agents search for and find prospects/businesses near them using a simple interface like Google Maps.</li>
+                            <li> A web portal that allows the supervisor or employer to see all relevant information, including: the location and contact details of prospects, exactly where your sales staff are, where they have visited, how long they spent at each prospect location, etc.</li>
+                            <li> Powerful and easy-to-understand reporting interface.</li>
+                    </ul>
+                        </p>
+                        <p>
+                            Come on Board and let <b>SaleSniper</b> handle the rest. Already have an Account? <a href='login.html'><b>LOGIN</b></a>
+                        </p>
+                        <div>
+                            <div class="mui-col-sm-4 mui-textfield mui-textfield--float-label">
+                              <input name="email" type="email" required="required" />
+                              <label>Email</label>
+                          </div>
+                          <div style="position:relative;" class="mui-col-sm-4" >
+                                <div class="mui-textfield mui-textfield--float-label">
+                                    <input type="password" id="pwd" name="password" minlength="6" required="required"/>
+                                    <label >Password</label>
+                                </div> 
+                              <div id="pswd_info">
+                                    <span class="mui--text-dark mui--text-subhead">Password must contain:</span>
+                                    <ul>
+                                        <li id="letter" class="invalid"><i class="material-icons tiny" style="vertical-align: text-bottom;">clear</i>At least <strong>one letter</strong></li>
+                                        <li id="capital" class="invalid"><i class="material-icons tiny" style="vertical-align: text-bottom;">clear</i>At least <strong>one capital letter</strong></li>
+                                        <li id="number" class="invalid"><i class="material-icons tiny" style="vertical-align: text-bottom;">clear</i>At least <strong>one number</strong></li>
+                                        <li id="length" class="invalid"><i class="material-icons tiny" style="vertical-align: text-bottom;">clear</i>At least <strong>6 characters</strong></li>
+                                        <li id="char" class="invalid"><i class="material-icons tiny" style="vertical-align: text-bottom;">clear</i>At least <strong>1 Symbol</strong></li>
+                                    
+                                    </ul>
+                               </div>
+                          </div>
+                          <div style="position:relative;">
+                                <div id="confirm" class="mui-col-sm-4 mui-textfield mui-textfield--float-label">
+                                    <input type="password" name="confirm" minlength="6" required="required"/>
+                                    <label>Confirm Password</label>
+                                </div> 
+
+                          </div>
+                            <!--end of password div-->
+                        </div>
+                                 
+                        <br/>
+                        <input type="hidden" name="hidden" id="hidden" value=''/>
+                        <input id='submit' value="Sign up" type="submit" style="float:right; margin-right:15px; " class="mui-btn mui-btn--small mui-btn--danger mui-btn--raised"/>
+                        <p th:if="${error}" style="font-size:15px; position:absolute; left:30px; bottom:20px; color:red;">Username already exist! </p>
+                    </form>
+                    
+                    
+
+              </div>
+                
+                
+            </div><!--end of mui-col-6-->
+      </div>
+    </div>
+
+      
+      
+      
+      
+      
+        <!--All javascript at the bottom of the page for faster page loading-->  
+     <!-- JQUERY-->
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!--MUI JS-->
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
+    <script src="../../static/js/mui.min.js" th:src="@{/js/mui.min.js}"></script>
+    <script src="../../static/js/materialize.min.js" th:src="@{/js/materialize.min.js}"></script>
+    <script src="../../static/js/underscore-min.js" th:src="@{/js/underscore-min.js}"></script>
+    
+    <!--CUSTOM JS-->
+    <script src="../../static/include/js/script.js" th:src="@{/include/js/script.js}"></script>
+    <script src="../../static/include/js/form_validation.js" th:src="@{/include/js/form_validation.js}"></script>
+  </body>
+</html>
