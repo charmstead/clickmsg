@@ -26,7 +26,8 @@ public class LoginController {
         log.debug("query string is: " + request.getQueryString());
         if ("error".equals(request.getQueryString()))
             model.addAttribute("error", "Invalid username or password");
-        model.addAttribute("page", "create_message");
+        model.addAttribute("page", "login");
         return Common.LAYOUT;
     }
+    
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml" sec:authorize="isAuthenticated()">
     <head>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -58,7 +58,7 @@
                             </li>-->
                            <li>
                             <a href="#">
-                                <i class="fa fa-user fa-fw"></i> <span>Username</span>
+                                <i class="fa fa-user fa-fw"></i> <span sec:authentication="name">Username</span>
                             </a>
 
                            </li>
@@ -94,7 +94,7 @@
                        
                         
                         <li>
-                            <a href="/form">
+                            <a href="#">
                                 <i class="fa fa-question"></i> <span>Help</span>
                             </a>
 
@@ -125,7 +125,7 @@
                         </li>
 
                         <li>
-                            <a href="/reports">
+                            <a href="/logout">
                                 <i class="fa fa-power-off"></i> <span>Log Out</span>
                             </a>
 
@@ -161,6 +161,9 @@
         </script>
         <script th:src="@{/js/json.js}"></script>
         <script th:src="@{/js/script.js}"></script>
+        <script th:src="@{/js/httpClient.js}"></script>
+        <script th:src="@{/js/spin.js}"></script>
+        <script th:src="@{/js/CreateMessage.js}"></script>
         <!-- Bootstrap 3.3.7 -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <!-- FastClick -->

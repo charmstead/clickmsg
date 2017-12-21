@@ -5,7 +5,8 @@
  */
 package co.clickmsg.clickmsg.repository;
 
-import co.clickmsg.clickmsg.domain.User;
+import co.clickmsg.clickmsg.domain.JsonMessage;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,7 +15,7 @@ import org.springframework.stereotype.Repository;
  * @author tomide
  */
 @Repository
-public interface UserRepository extends JpaRepository<User, Long>{
+public interface JsonMessageRepository extends JpaRepository<JsonMessage,Long>{
     
-    public User findByEmail(String email);
+    public List<JsonMessage> findByUserEmail(String email);
 }

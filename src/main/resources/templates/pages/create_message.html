@@ -2,10 +2,12 @@
 <style type="text/css">
     .card li.list-group-item{
         border-radius: 0px;
-      
-        border-color: #ddd;
+        padding: 0px 15px;
+        
+        /* border-color: #ddd; */
     }
     .list-group-item{
+       
         border: 0px 0px;
     }
     .list-group{
@@ -19,15 +21,15 @@
         
         <div class="col-md-6">
            <!--start of form-->
-            <form id="loginForm" th:action="@{/login}" method="post" class="form-signin" style="background: white; padding: 30px;">
+            <form id="messageForm" class="form-signin" style="background: white; padding: 30px;">
 
                 <h1 class="display-4">
                     Create Your Message
                 </h1>
                 <div class="form-group">
                     <h3><label>Ad Name</label></h3>
-
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required="required" autofocus="autofocus" placeholder="Ads Msg Title"/>
+                <input type="hidden" value="" name="id"/>
+                <input type="text" class="form-control" name="name" aria-describedby="emailHelp" required="required" autofocus="autofocus" placeholder="Ads Msg Title"/>
                 <small id="msgTitle" class="form-text text-muted">input a name to save this ad with.</small>
               </div>
 
@@ -70,15 +72,25 @@
 
                 <div class="form-group">
                     <label for="inputPassword">Reply 1</label>
-                    <input type="text" name="reply1" class="form-control" placeholder="Reply 01" required="required" />
+                    <input name="reply1" class="form-control" placeholder="Reply 01"/>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword">Reply 2</label>
-                    <input type="text" name="reply2" class="form-control" placeholder="Reply 02" required="required" />
+                    <input  name="reply2" class="form-control" placeholder="Reply 02" />
                 </div>
-                <button class=" btn btn-lg btn-primary" type="submit">Save and Get JSON</button>
+                <p id="warning" style="visibility:hidden;"></p>
+                <button class=" btn btn-lg btn-primary" id="msg_submit" type="submit">Save and Get JSON</button>
 
-                <a class="btn btn-lg btn-primary" href="#">Just Get JSON</a>
+                <button class="btn btn-lg btn-primary"  id="copy_json" data-toggle="modal" data-target="#exampleModal">Copy JSON</button>
+
+
+  
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <textarea cols="10" rows="10">
+
+                        </textarea>
+                    </div>
             </form>
                       
           <!--end of form-->   
@@ -94,8 +106,8 @@
                       <p class="card-text" id="msg_body">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     </div>
                     <ul class="list-group list-group-flush text-center">
-                      <li class="list-group-item card-link"><a href="#" id="link_btn">Clickable link</a></li>
-                      <li class="list-group-item card-link"><a href="#" id="cta">Call to action</a></li>
+                      <li class="list-group-item card-link"><a href="#" id="link_btn"><h3>Clickable link</h3></a></li>
+                      <li class="list-group-item card-link"><a href="#" id="cta"><h3>Call to action</h3></a></li>
                     </ul>
                     
                 </div>

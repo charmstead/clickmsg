@@ -7,6 +7,7 @@ package co.clickmsg.clickmsg.domain;
 
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /**
@@ -18,17 +19,18 @@ public class JsonMessage extends BaseAuditableModel{
     
     private String name;
     
-    private String jsonMessage;
+    private String message;
     
     @ManyToOne
+    @JoinColumn(name = "user_id",unique = true)
     private User user;
 
-    public String getJsonMessage() {
-        return jsonMessage;
+    public String getMessage() {
+        return message;
     }
 
-    public void setJsonMessage(String jsonMessage) {
-        this.jsonMessage = jsonMessage;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public User getUser() {

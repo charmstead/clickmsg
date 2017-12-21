@@ -3,18 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.clickmsg.clickmsg.repository;
+package co.clickmsg.clickmsg.service;
 
+import co.clickmsg.clickmsg.domain.JsonMessage;
 import co.clickmsg.clickmsg.domain.User;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author tomide
  */
-@Repository
-public interface UserRepository extends JpaRepository<User, Long>{
+public interface UserService {
     
     public User findByEmail(String email);
+    
+    public User save(User user);
+    
+    public User save(String email,JsonMessage jsonMessage);
 }

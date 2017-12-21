@@ -9,9 +9,7 @@ import javax.persistence.MappedSuperclass;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
-/**
- * Created by tycoon on 3/21/16.
- */
+
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public abstract class BaseAuditableModel extends BaseModel {

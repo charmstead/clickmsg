@@ -3,18 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.clickmsg.clickmsg.domain;
+package co.clickmsg.clickmsg.dto;
 
 
+import co.clickmsg.clickmsg.domain.*;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import java.util.List;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import lombok.Data;
-import lombok.ToString;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -22,25 +18,23 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  *
  * @author tomide
  */
-@Entity
-@ToString(exclude = "password")
-public class User extends BaseAuditableModel{
+@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class UserDto{
     
     
 public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
     
-    @Column(unique = true,length = 50)
+    
     private String email;
     
     private String password;
     
-    private String[] roles;
+    private List[] roles;
     
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "user")
+   
     private List<JsonMessage> jsonMesage; 
     
-    @OneToOne(mappedBy = "user")
-    @JoinColumn(name = "billing_id")
     private Billing billing;
     
     
@@ -49,7 +43,7 @@ public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder
         return email;
     }
 
-    public User setEmail(String email) {
+    public UserDto setEmail(String email) {
         this.email = email;
         return this;
     }
@@ -58,7 +52,7 @@ public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder
         return password;
     }
 
-    public User setPassword(String password) {
+    public UserDto setPassword(String password) {
         
         this.password = PASSWORD_ENCODER.encode(password);
         return this;
@@ -68,9 +62,8 @@ public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder
         return jsonMesage;
     }
 
-    public User setJsonMesage(List<JsonMessage> jsonMesage) {
+    public void setJsonMesage(List<JsonMessage> jsonMesage) {
         this.jsonMesage = jsonMesage;
-        return this;
     }
 
 
@@ -78,18 +71,17 @@ public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder
         return billing;
     }
 
-    public User setBilling(Billing billing) {
+    public UserDto setBilling(Billing billing) {
         this.billing = billing;
         return this;
     }
 
-    public String[] getRoles() {
+    public List[] getRoles() {
         return roles;
     }
 
-    public User setRoles(String[] roles) {
+    public void setRoles(List[] roles) {
         this.roles = roles;
-        return this;
     }
 
     
