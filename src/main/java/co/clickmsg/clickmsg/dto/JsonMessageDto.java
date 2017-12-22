@@ -20,26 +20,48 @@ import java.io.Serializable;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class JsonMessageDto implements Serializable{
     
+    private Long id;
+    
     private String name;
     
-    private String message;
+    private Object message;
 
-    public String getJsonMessage() {
-        return message;
+    public JsonMessageDto(Long id, String name, Object message) {
+        this.id = id;
+        this.name = name;
+        this.message = message;
     }
 
-    public void setJsonMessage(String jsonMessage) {
-        this.message = jsonMessage;
+    public JsonMessageDto() {
     }
 
-
+    
+    
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public JsonMessageDto setName(String name) {
         this.name = name;
+        return this;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Object getMessage() {
+        return message;
+    }
+
+    public void setMessage(Object message) {
+        this.message = message;
+    }
+    
     
     
     

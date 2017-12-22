@@ -81,9 +81,9 @@ public class CreateMessageController {
         jm.setId(Long.parseLong(((String) map.get("id")).isEmpty()?"0":((String) map.get("id")).trim()));
 
         
+        jsonMessageService.save(jm);
         
-        
-       // userServ.save(user.getName(), msg);
+//       userServ.save(user.getName(), jm);
         
         System.out.println(map.get("message"));
         

@@ -6,6 +6,8 @@
 package co.clickmsg.clickmsg.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -24,7 +26,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  */
 @Entity
 @ToString(exclude = "password")
-public class User extends BaseAuditableModel{
+public class User extends BaseAuditableModel implements Serializable{
     
     
 public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
@@ -36,6 +38,7 @@ public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder
     
     private String[] roles;
     
+//    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "user")
     private List<JsonMessage> jsonMesage; 
     

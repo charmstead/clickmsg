@@ -6,6 +6,9 @@
 package co.clickmsg.clickmsg.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -15,14 +18,16 @@ import javax.persistence.ManyToOne;
  * @author tomide
  */
 @Entity
-public class JsonMessage extends BaseAuditableModel{
+public class JsonMessage extends BaseAuditableModel implements Serializable{
     
     private String name;
     
+    @Column(length = 1024)
     private String message;
     
-    @ManyToOne
-    @JoinColumn(name = "user_id",unique = true)
+    @JsonIgnore
+    @ManyToOne//
+    @JoinColumn(name = "user_id")
     private User user;
 
     public String getMessage() {
