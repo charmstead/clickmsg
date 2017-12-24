@@ -28,7 +28,7 @@ $("input[name=cta], input[name=name], input[name=message_title], input[name=msg_
             JsonMessage.message.attachment.payload.elements[0]["image_url"]=value;
             break;
         case "link_btn_url":
-            JsonMessage.message.attachment.payload.elements[0]["buttons"]["url"]=value;
+            JsonMessage.message.attachment.payload.elements[0]["buttons"][0]["url"]=value;
             $("#link_btn").attr("href",value);
             break;
         case "link_btn_text":
@@ -119,9 +119,7 @@ $("#messageForm").submit(function(event){
                 
             });
 
-
     }
     
 
 });
-

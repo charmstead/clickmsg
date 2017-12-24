@@ -21,16 +21,18 @@
                      
                         </thead>
                         <tbody>
+                            <th:block th:each="message : ${messages}">
+                                <tr role="row" class="odd text-center">
+                                        <td class="sorting_1" th:text="${message.name}">Webkit</td>
+                                        <td th:text="${message.message.attachment.payload.elements[0].title}">Safari 1.2</td>
+                                        <td th:text="${message}">OSX.3</td>
+                                        <td th:text="${message.message.attachment.payload.elements[0].buttons[0].url}">125.5</td>
+                                        <td><a th:href="@{/manage_messages/edit(id=${message.id})}" class="btn btn-primary" href="#" >Edit</a></td>
+                                        <td><a th:href="@{/manage_messages/delete(id=${message.id})}" class="btn btn-default">Delete</a></td>
+                                        
+                                    </tr>
+                            </th:block>
                             
-                            <tr:block th:each="message : ${messages}" role="row" class="odd text-center">
-                                <td class="sorting_1" th:text="${message.name}">Webkit</td>
-                                <td th:text="${message.message.attachment.payload.elements[0].title}">Safari 1.2</td>
-                                <td th:text="${message.name}">OSX.3</td>
-                                <td th:text="${message.message.attachment.payload.elements[0].buttons[0].url}">125.5</td>
-                                <td><a class="btn btn-primary" href="#" >Edit</a></td>
-                                <td><a class="btn btn-default" href="#" >Delete</a></td>
-                                
-                            </tr:block>
                         </tbody>
                        
                     </table>

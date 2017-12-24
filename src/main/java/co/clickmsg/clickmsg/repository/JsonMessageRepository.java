@@ -18,4 +18,6 @@ import org.springframework.stereotype.Repository;
 public interface JsonMessageRepository extends JpaRepository<JsonMessage,Long>{
     
     public List<JsonMessage> findByUserEmail(String email);
+    
+    public JsonMessage findOneByIdAndUserEmail(long id, String email);
 }

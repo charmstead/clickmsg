@@ -19,4 +19,10 @@ public interface JsonMessageService {
     public List<JsonMessage> findAll();
     
     public List<JsonMessage> findByUserEmail(String email);
+    
+    public void delete(long id,String email);
+    
+    public JsonMessage findById(long id);
+    
+   
 }

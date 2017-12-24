@@ -28,8 +28,8 @@
                 </h1>
                 <div class="form-group">
                     <h3><label>Ad Name</label></h3>
-                <input type="hidden" value="" name="id" />
-                <input type="text" class="form-control" name="name" aria-describedby="emailHelp" required="required" autofocus="autofocus" placeholder="Ads Msg Title"/>
+                <input type="hidden" value="" name="id"  th:value="${message.id}"/>
+                <input th:value="${message.name}" type="text" class="form-control" name="name"  aria-describedby="emailHelp" required="required" autofocus="autofocus" placeholder="Ads Msg Title"/>
                 <small id="msgTitle" class="form-text text-muted">input a name to save this ad with.</small>
               </div>
 
@@ -39,17 +39,17 @@
 
                 <div class="form-group">
                     <label for="cta">Call To Action Title</label>
-                    <input type="text" name="cta" class="form-control" placeholder="Call to action" required="required"/>
+                    <input type="text" name="cta" value="" class="form-control" placeholder="Call to action" required="required"/>
                 </div>
 
                 <div class="form-group">
                     <label for="message_title">Message Title</label>
-                    <input type="text" name="message_title" class="form-control" placeholder="Message Title" required="required"/>
+                    <input type="text" name="message_title" value="" class="form-control" placeholder="Message Title" required="required"/>
                 </div>
 
                 <div class="form-group">
                     <label for="msg_body">Message Body</label>
-                    <input type="text" name="msg_body" class="form-control" placeholder="Message Body" required="required"/>
+                    <input type="text" value="" name="msg_body" class="form-control" placeholder="Message Body" required="required"/>
                 </div>
 
                 <div class="form-group">
@@ -129,21 +129,56 @@
 
         </div>
     </div>
-    
-    <!-- <script>
-
-        $('#loginForm').validate({
-        rules: {
-        password: {
-        required: true,
-        minlength: 6
-        //pwcheck: true
-        },
-        username: {
-        required: true
-        }
-        }
-        });
-
-    </script> -->
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+
+<script th:inline="javascript">
+   
+    var message = /*[[${message}]]*/ "";
+
+            $("input[name=cta]").val(message.name);
+            
+
+            $(this).val(message.message.attachment.payload.elements[0]["title"]);
+            $("#cta").text(message.message.attachment.payload.elements[0]["title"]);
+
+
+
+            $("input[name=message_title]").val(message.message.attachment.payload.elements[0]["buttons"][1].title);
+            
+            $("#message_title").text(message.message.attachment.payload.elements[0]["buttons"][1].title);
+
+
+            $("input[name=msg_body]").val(message.message.attachment.payload.elements[0]["subtitle"]);
+            
+              
+            $("#msg_body").text(message.message.attachment.payload.elements[0]["subtitle"]);
+
+
+
+            $("input[name=image_url]").val(message.message.attachment.payload.elements[0]["image_url"]);
+            $("#image_url").attr("src",message.message.attachment.payload.elements[0]["image_url"]);
+            
+  
+
+            $("input[name=link_btn_url]").val(message.message.attachment.payload.elements[0].buttons[0].url);
+
+            
+            $("#link_btn").attr("href",message.message.attachment.payload.elements[0]["buttons"]["url"]);
+           
+
+        
+
+            $("input[name=link_btn_text]").val(message.message.attachment.payload.elements[0]["buttons"][0].title);
+            
+            $("#link_btn").text(message.message.attachment.payload.elements[0]["buttons"][0].title);
+        
+
+            $("input[name=reply1]").text(message.message.quick_replies[0]);
+            $("#reply1").text(message.message.quick_replies[0]);
+
+            $("input[name=reply2]").text(message.message.quick_replies[1]);
+            $("#reply2").text(message.message.quick_replies[1]);
+
+</script>

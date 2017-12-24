@@ -20,7 +20,7 @@ import java.io.Serializable;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class JsonMessageDto implements Serializable{
     
-    private Long id;
+    private long id;
     
     private String name;
     

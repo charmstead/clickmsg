@@ -18,8 +18,7 @@ public abstract class BaseModel implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @JsonIgnore
-  protected Long id;
+    protected Long id;
   //    @Version
   //    private Long version;
 

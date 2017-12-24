@@ -25,7 +25,7 @@ public class DashboardController {
     public String home(Model model){
         
         
-         model.addAttribute("page", "login");
+         model.addAttribute("page", "home");
         return Common.DASHBOARD;
     }
     

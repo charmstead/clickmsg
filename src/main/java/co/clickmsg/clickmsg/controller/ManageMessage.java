@@ -21,8 +21,11 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -45,7 +48,6 @@ public class ManageMessage {
         
         List<JsonMessage> messages = jsonMessageService.findByUserEmail(email);
         
-        //System.out.println(messages.get(3).getId());
         
         List<JsonMessageDto> dto = new ArrayList<>();
 //        
@@ -56,7 +58,7 @@ public class ManageMessage {
                     Object test = mapper.readValue(msg.getMessage(), Object.class);
                     
                     dto.add(new JsonMessageDto(msg.getId(),msg.getName(),test));
-                         
+                       System.out.println(msg.getId());
                 }
                 
             } catch (IOException ex) {
@@ -64,13 +66,40 @@ public class ManageMessage {
             }
             
         }
-    
-      
-        
+     
         model.addAttribute("page", "manage_messages");
         
         model.addAttribute("messages", dto);
         return Common.DASHBOARD;
     }
     
+    
+    @GetMapping("/delete")
+    public String deleteMessage(Model model,@RequestParam("id") int id,Principal principal){
+        
+        jsonMessageService.delete(id, principal.getName());
+        
+        return "redirect:/manage_messages";
+    }
+        
+     @GetMapping("/edit")
+    public String home(Model model,@RequestParam long id){
+        
+        JsonMessage json = jsonMessageService.findById(id);
+        
+        JsonMessageDto jsonMessageDto = new JsonMessageDto();
+        try {
+            Object result = mapper.readValue(json.getMessage(), Object.class);
+            jsonMessageDto.setId(id);
+            jsonMessageDto.setName(json.getName());
+            jsonMessageDto.setMessage(result);
+        } catch (IOException ex) {
+            Logger.getLogger(ManageMessage.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        model.addAttribute("page", "edit");
+        model.addAttribute("message", jsonMessageDto);
+        
+        return Common.DASHBOARD;
+    }
 }

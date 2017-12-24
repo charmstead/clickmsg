@@ -54,5 +54,19 @@ public class JsonMessageServiceImpl implements JsonMessageService{
     public List<JsonMessage> findByUserEmail(String email) {
         return jsonMessageRepo.findByUserEmail(email);
     }
+
+    @Override
+    public void delete(long id,String email) {
+        JsonMessage jm  = jsonMessageRepo.findOneByIdAndUserEmail(id,email);
+        
+        if(!isNull(jm)){
+            jsonMessageRepo.delete(id);
+        }
+    }
+
+    @Override
+    public JsonMessage findById(long id) {
+        return jsonMessageRepo.findOne(id);
+    }
     
 }

@@ -1,38 +1,79 @@
-<div class="container" >
-    <form id="loginForm" th:action="@{/login}" method="post" class="form-signin" style="background: white; padding: 30px;margin-top: 8em;">
-        <h4 class="form-signin-heading">Please sign in 
-            <!--                    with your Shoppi.ng account-->
-        </h4>
-        <div th:if="${error}">
-            <div class="alert alert-danger" role="alert">
-                <p th:text="*{error}"></p> 
-            </div><br/>
-        </div>
-        <div class="form-group">
-            <label for="inputUsername">Email address</label>
-            <input type="text" name="username" class="form-control" placeholder="Email address" required="required" autofocus="autofocus" />
-        </div>
-        <div class="form-group">
-            <label for="inputPassword">Password</label>
-            <input type="password" name="password" class="form-control" placeholder="Password" required="required" />
-        </div>
-
-        <button class="center-block btn btn-lg btn-primary" type="submit">Login</button>
-    </form>
-    <script>
-
-        $('#loginForm').validate({
-        rules: {
-        password: {
-        required: true,
-        minlength: 6
-        //                    pwcheck: true
-        },
-        username: {
-        required: true
-        }
-        }
-        });
-
-    </script>
+<section class="content-header">
+        <h1>
+          Dashboard
+          
+        </h1>
+        <ol class="breadcrumb">
+          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li class="active">Dashboard</li>
+        </ol>
+</section>
+<br/>
+<div>
+       <h4>ClickMsg helps you create graphical ads for Facebook new messenger ads format</h4>
 </div>
+      <div class="row">
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3>
+                        <br/>
+                    </h3>
+                  <h4>Create new Message here</h4>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-edit"></i>
+                </div>
+                <a href="/create_message" class="small-box-footer">Create new Message<i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-green">
+                <div class="inner">
+                        <h3>
+                                <br/>
+                            </h3>
+                          <h4>See your saved messages here</h4>
+                </div>
+                <div class="icon">
+                  <i class="fa fa-folder"></i>
+                </div>
+                <a href="/manage_messages" class="small-box-footer">saved messages<i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <div class="small-box bg-yellow">
+                <div class="inner">
+                        <h3>
+                                <br/>
+                            </h3>
+                          <h4>Go here to change your password</h4>
+                </div>
+                <div class="icon">
+                        <i class="fa fa-certificate"></i>
+                </div>
+                <a href="#" class="small-box-footer">Settings<i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+              <!-- small box -->
+              <!-- <div class="small-box bg-red">
+                <div class="inner">
+                  <h3>65</h3>
+    
+                  <p>Unique Visitors</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div> -->
+            </div>
+            <!-- ./col -->
+          </div>
