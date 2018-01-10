@@ -29,14 +29,10 @@ spring:
     platform: {DB_PLATFORM}
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
     
     
-    
-server:
-  port: 9095
-
 server:
   port: ${port:8084}
   contextPath: /
