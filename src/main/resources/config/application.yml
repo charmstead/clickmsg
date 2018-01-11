@@ -22,22 +22,22 @@ spring:
       enabled: false
   thymeleaf:
     cache: false
-  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://${DB_HOST:}:${DB_PORT:3306}/${DB_DATABASE:}?useUnicode=true&characterEncoding=utf8&useSSL=false
-    name: ${DB_DATABASE}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
-    continueOnError: true
-    initialize: false
-    initialSize: 0
-    timeBetweenEvictionRunsMillis: 5000
-    minEvictableIdleTimeMillis: 5000
-    minIdle: 0
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
+#  datasource:
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://${DB_HOST:}:${DB_PORT:3306}/${DB_DATABASE:}?useUnicode=true&characterEncoding=utf8&useSSL=false
+#    name: ${DB_DATABASE}
+#    username: ${DB_USERNAME}
+#    password: ${DB_PASSWORD}
+#    continueOnError: true
+#    initialize: false
+#    initialSize: 0
+#    timeBetweenEvictionRunsMillis: 5000
+#    minEvictableIdleTimeMillis: 5000
+#    minIdle: 0
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
     
     
 server:
